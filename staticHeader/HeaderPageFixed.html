@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fixed</title>
+  <style>
+
+    body {
+      margin: 0;
+    }
+
+    .page {
+      flex-direction: column;
+      overflow: hidden;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+    }
+
+    .header, .footer {
+      position: fixed;
+      display: grid;
+      grid-template: "a a a";
+      background-color: green;
+      width: 100%;
+      color: white;
+    }
+
+    .content {
+      height: 100%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btns-group {
+      border: 1px solid black;
+      width: 400px;
+    }
+
+    .btn {
+      cursor: pointer;
+    }
+
+    .header {
+      top: 0;
+    }
+
+    .footer {
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="header"></header>
+  <div class="content">
+    <div class="btns-group">
+      <div class="btn">
+        add to Header
+      </div>
+      <div class="btn">
+        add to Footer
+      </div>
+      <div class="btn">
+        add lorem1000 text below
+      </div>
+      <div class="btn">
+        delete text
+      </div>
+    </div>
+    <div class="text"></div>
+
+  </div>
+  <footer class="footer"></footer>
+</div>
+<script>
+  const [headerBtn, footerBtn, addText, delText] = document.querySelectorAll('.btn')
+  const textDiv = document.querySelector('.text')
+  const header = document.querySelector('.header')
+  const footer = document.querySelector('.footer')
+  const content = document.querySelector('.content')
+  const lorem1000Str = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae deleniti, ea eum in omnis ullam ut vitae voluptas voluptatem. Adipisci amet animi autem beatae blanditiis consectetur cupiditate dolores ea earum eligendi excepturi explicabo facere id illo ipsum molestiae nam natus necessitatibus neque optio perferendis porro praesentium qui quidem quo reiciendis, similique soluta sunt suscipit totam vel vitae voluptates voluptatum? Aliquid aperiam, cum dicta dolorem dolores, eaque facilis impedit laboriosam minus molestiae nesciunt omnis optio praesentium quod rerum sint sit tenetur voluptatem. At consectetur consequatur dolor dolores eaque error et ex explicabo facere facilis fugiat hic illum ipsa ipsam iste laborum maxime nemo, nesciunt nulla, omnis perferendis placeat porro quaerat qui rerum sapiente similique soluta sunt temporibus veniam. Aspernatur deserunt dolor enim eos excepturi fuga inventore similique? Explicabo in magni molestiae natus veritatis! Adipisci amet animi consectetur distinctio dolore ducimus fugiat ipsa libero mollitia natus nihil omnis rem rerum ullam, voluptates. Beatae eos molestiae numquam quisquam quos repudiandae veritatis! Alias, animi architecto culpa dolorem eaque laboriosam laborum, laudantium odit omnis quod sit unde. Aliquam distinctio dolorum eius eligendi error et eveniet ex fugit impedit ipsum iste iure natus odio, odit officiis, optio quos repellat, repudiandae velit voluptatem? A ad aliquid at aut consectetur corporis dolorum earum eligendi esse eveniet ex harum inventore ipsum itaque laudantium magnam, maxime numquam odio officiis quas qui quo rem sapiente sit vero. Cum, dignissimos esse facilis fugiat id iste itaque libero magnam molestiae omnis porro quam quia quisquam recusandae sint ut veniam, voluptatem? Ea facere in repudiandae sit! Adipisci asperiores assumenda at cumque cupiditate dolore, doloribus dolorum eaque eum fugiat id illum iste laboriosam molestiae natus nesciunt nostrum pariatur quidem quis quisquam quod reiciendis rem repellendus reprehenderit sapiente sint soluta tempore tenetur totam ullam unde vel voluptas voluptatibus. Alias assumenda consequatur earum esse expedita fugit illo in, incidunt, ipsum quaerat quis repellat sint voluptates! Cumque expedita facilis provident? A at earum eligendi eum laborum odio sapiente vel! A aut dignissimos dolores, fuga impedit magnam nemo obcaecati quibusdam saepe unde. Commodi corporis doloremque illo quisquam temporibus vel veniam voluptatibus? Ad aliquid amet aspernatur at aut autem blanditiis debitis dignissimos ea earum esse et, hic id impedit ipsa ipsam magnam maiores maxime mollitia nam necessitatibus neque nihil obcaecati quam quas quidem recusandae rem repellat repellendus rerum sequi similique sit suscipit tempore tenetur ullam velit. Autem dolor ipsa ipsam perspiciatis provident rerum totam! Adipisci aspernatur commodi dolores ducimus et eveniet exercitationem id, illum incidunt necessitatibus nihil obcaecati qui repellendus sit voluptatum. Harum iure, labore! Animi culpa doloribus et id inventore ipsa iste maxime, necessitatibus neque nisi nostrum odit optio quas quasi quibusdam quisquam reprehenderit rerum soluta voluptas voluptatibus! Alias aliquid est excepturi illo illum magni placeat, quidem vero. Aliquam at aut enim esse incidunt inventore, ipsum laboriosam laudantium quasi quidem recusandae sapiente, sint, tempora temporibus voluptates? Aspernatur, assumenda dolorem fugiat in magni officia possimus ut veritatis. Dolor dolores ducimus eligendi eum, mollitia non quidem tenetur ullam? Ad animi asperiores at atque, autem consequuntur eaque enim ex facere hic ipsum, laboriosam natus non repellat repudiandae similique sit ullam voluptate. Aut consequuntur debitis, dicta, dolor eum facilis incidunt numquam officiis pariatur porro sequi veniam, voluptate? Eos laborum quaerat similique! Accusamus accusantium animi architecto assumenda aut autem culpa distinctio dolor dolorem dolores eos esse expedita id impedit ipsam, laboriosam laborum laudantium magni maiores nihil nulla quaerat qui reprehenderit vel veniam vero voluptas. Accusantium blanditiis fuga magni placeat voluptatum! Blanditiis facere obcaecati possimus? Ad amet architecto aspernatur at atque, autem beatae blanditiis consequatur cum deleniti dolorem, dolores doloribus incidunt ipsum itaque laudantium, magnam nam necessitatibus neque numquam porro provident quas quisquam rerum saepe sapiente sint tempora temporibus ullam vitae. Adipisci aliquam at beatae consequatur culpa cumque debitis delectus dignissimos, dolorem doloremque eius, esse explicabo hic id laborum maiores, minima mollitia natus nihil odio officia perferendis placeat possimus quasi rem rerum similique ut veniam voluptates voluptatum. Animi architecto debitis excepturi exercitationem perferendis qui repellendus unde vero? Aliquid debitis dicta, dolores enim fugit illum impedit iure praesentium quia. Blanditiis, id, sunt. Aliquam animi aperiam architecto asperiores aspernatur assumenda atque autem blanditiis consequuntur corporis, dignissimos dolorem doloribus eaque et facere fuga harum illum ipsa itaque molestias nam necessitatibus obcaecati possimus quae quaerat quam quibusdam quis reprehenderit repudiandae sed suscipit vero voluptate voluptatum! Accusantium adipisci animi asperiores aspernatur assumenda error illo minus sint ut. Adipisci culpa dicta dignissimos eaque eos expedita ipsa ipsam necessitatibus quaerat voluptatibus! Aut consequuntur deleniti ex, illum labore magni molestiae non numquam odio optio placeat qui, repellendus rerum sunt tempore totam velit. Commodi consectetur consequuntur dignissimos eligendi explicabo id illum libero molestias odio quasi, qui quis rerum similique veritatis voluptate. Corporis eligendi in magnam minus veritatis. Aliquid animi at commodi dignissimos dolor dolores dolorum ea enim eos exercitationem illum impedit in iusto labore maxime minima minus modi molestias nemo nesciunt, obcaecati odio perspiciatis quae quas quisquam rem sit suscipit temporibus, vel vero! Aliquam amet at dolorem doloribus esse eum incidunt ipsam quis sequi voluptatem. Ad adipisci assumenda atque cumque debitis delectus deserunt eos impedit molestiae officia omnis, quisquam repellendus sapiente sit temporibus. A amet animi assumenda corporis debitis delectus deleniti deserunt dolor dolores doloribus, ducimus eligendi enim exercitationem fuga hic inventore ipsum itaque, laboriosam laborum magni obcaecati sint suscipit vitae! Aliquid, animi dolores fugit inventore, magni minima, nam nostrum porro quia repellendus rerum sunt ut! Alias deleniti id illo libero magni maxime, repudiandae rerum tenetur! Adipisci dignissimos dolores ea eligendi excepturi expedita facilis in iste, magni mollitia necessitatibus nesciunt officiis rem unde voluptate. Aliquid asperiores odit repellendus ullam! A aliquid aperiam at autem culpa, cumque debitis dolorem esse est facere illum labore, maiores minus modi, nihil obcaecati rem velit? Ea eaque eum fugiat in incidunt nisi numquam vitae? Delectus deleniti dolores eos excepturi mollitia optio sapiente voluptatibus. Aliquam aperiam at aut consectetur corporis culpa cumque deserunt distinctio ducimus eaque est facere fugiat fugit in ipsa itaque iure mollitia, nesciunt, nulla obcaecati, odit officiis pariatur praesentium quaerat quasi qui quis quos rem repellat repudiandae sed similique temporibus unde ut vel velit voluptates! Distinctio.\n'
+
+  const appendElement = (e, val) => {
+    let div = document.createElement('div');
+    div.textContent = val;
+    e.appendChild(div)
+  }
+  const unpdateMargin = () => {
+    content.style.marginTop = header.clientHeight + 'px'
+    content.style.marginBottom = footer.clientHeight + 'px'
+  }
+
+  headerBtn.addEventListener('click', () => {
+    appendElement(header, header.childNodes.length)
+    unpdateMargin()
+  })
+  footerBtn.addEventListener('click', () => {
+    appendElement(footer, footer.childNodes.length)
+    unpdateMargin()
+  })
+  addText.addEventListener('click', () => {
+    textDiv.textContent += lorem1000Str
+  })
+  delText.addEventListener('click', () => {
+    textDiv.textContent = ''
+  })
+</script>
+</body>
+</html>
