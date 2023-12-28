@@ -1,8 +1,6 @@
 some page examples my view of correct static header webbpage
 
-It's made without `position:fixed` or `position:sticky`
-
-I make it with this one
+I make it with this one `HeaderPage.html`
 ```html
 <div class="page">
   <header class="header">
@@ -37,5 +35,17 @@ I make it with this one
 }
 ```
 
-because I don't use `fixed/stciky` can easily add some popup
-without any refactor of this code
+same logic with `position:fixed`,
+but to updating `height` (adding `margin`)
+we need some js code
+
+```javascript
+const header = document.querySelector('.header')
+const footer = document.querySelector('.footer')
+const content = document.querySelector('.content')
+
+const unpdateMargin = () => {
+    content.style.marginTop = header.clientHeight + 'px'
+    content.style.marginBottom = footer.clientHeight + 'px'
+}
+```

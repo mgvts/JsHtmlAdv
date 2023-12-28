@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>text area</title>
+  <style>
+    .page {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap:150px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .inp {
+      width: 200px;
+      height: 20px;
+      /*border: 1px solid black;*/
+      text-decoration: none;
+    }
+
+    .auto-height {
+      height: 2rem;
+      margin-bottom: 2rem;
+      overflow-y: hidden;
+      resize: none;
+    }
+
+    .shown {
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="container">
+    <div>
+      <p> here example div as textarea as auto height<p>
+
+      <textarea class="inp auto-height">put ur text here and enjoy it</textarea>
+    </div>
+
+    <div>
+    <button class="get-text"> get text</button>
+    ur text is here:
+    <div class="shown" style="border: 1px solid green"></div>
+  </div>
+
+  </div>
+  <div class="container">
+    <p> here example with texarea without any css properties</p>
+    <textarea class="inp"></textarea>
+  </div>
+  <div class="container">
+    <p> here example with input without any css properties</p>
+    <input  class="inp" value="put ur text here"/>
+  </div>
+  <div class="container">
+    <p> here example with div as textarea without any css properties</p>
+
+    <div class="inp" contenteditable="true">put ur text here</div>
+  </div>
+</div>
+<script lang="js">
+  const autosize = document.querySelector(".auto-height")
+  autosize.addEventListener('input', () => {
+    autosize.style.height = 'auto';
+    autosize.style.height = (autosize.scrollHeight) + 'px';
+  })
+  const getTextBtn = document.querySelector(".get-text")
+  const shown = document.querySelector('.shown')
+  getTextBtn.addEventListener('click', function () {
+    shown.textContent = autosize.value
+    console.log(autosize.value)
+    autosize.value = ''
+  })
+
+</script>
+</body>
+</html>
