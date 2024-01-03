@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phones</title>
+  <style>
+
+    .page {
+      display: flex;
+      flex-direction: column;
+    }
+
+
+
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="container">
+    <div>1.</div>
+    <div>you enter: <span class="v1 val"></span></div>
+    <div>
+      <input class="i1 inp" type="range" max="100000000000">
+    </div>
+  </div>
+
+  <div class="container">
+    <div>2.</div>
+    <div>you enter: <span class="v2 val"></span></div>
+    <div>
+      <input
+        class="i2 inp"
+        type="text"
+        inputmode="numeric"
+        pattern="[0-9\s]{13,19}"
+        autocomplete="cc-number"
+        maxlength="19"
+        placeholder="x xxx xxx xx xx"
+      />
+    </div>
+  </div>
+  <div class="container">
+    <div>3.</div>
+    <div>you enter: <span class="v3 val"></span></div>
+    <div>
+      does ur number more then<span class="v3-val"></span>
+    </div>
+    <input hidden class="i3 inp">
+    <div>
+      <button class="v3-btn">yes</button>
+      <button class="v3-btn">no</button>
+    </div>
+    <div>
+      <button class="v3-btn">save</button>
+      <button class="v3-btn">refresh</button>
+
+    </div>
+  </div>
+</div>
+<script lang="js">
+  <!--  v1 v2-->
+  let inpts = document.querySelectorAll(".inp")
+  let values = document.querySelectorAll(".val")
+  const decorate = (num) => {
+    const n = (num + "").replaceAll(" ", "")
+    return `+${n[0]} (${n.substring(1, 4)}) ${n.substring(4, 7)}-${n.substring(7, 9)}-${n.substring(9, 11)}`
+  }
+  inpts.forEach((inp, i) => {
+    inp.addEventListener('input', (e) => {
+      console.log(e)
+      values[i].textContent = decorate(inp.value)
+    })
+  })
+</script>
+<script lang="js">
+  <!--  v3 -->
+  let [yesBtn, noBtn, saveBtn, refreshBtn] = document.querySelectorAll(".v3-btn")
+  let currentNumSp = document.querySelector(".v3-val")
+  let lbound = 0
+  let rbound = 10_000_000_00_00
+  let middle = (lbound + rbound) / 2
+  const upload = () => {
+    middle = (lbound + rbound) / 2
+    currentNumSp.textContent = decorate((lbound + rbound) / 2)
+  }
+  upload()
+
+  yesBtn.addEventListener('click', () => {
+    lbound = middle
+    upload()
+  })
+  noBtn.addEventListener('click', () => {
+    rbound = middle
+    upload()
+  })
+
+  saveBtn.addEventListener('click', () => {
+    inpts[2].value = middle
+    const ev = new Event('input', {})
+    inpts[2].dispatchEvent(ev)
+  })
+
+  refreshBtn.addEventListener('click', () => {
+    lbound = 0
+    rbound = 100000000000
+    upload()
+  })
+</script>
+</body>
+</html>
